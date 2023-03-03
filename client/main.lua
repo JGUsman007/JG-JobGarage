@@ -12,7 +12,7 @@ CreateThread(function()
         for k,v in pairs(Config.Garage) do
             local distance =  #(playerCoords - v.pos)
             if xPlayer.job.name == v.jobname then
-                if distance < Config.garageradius then
+                if distance < 5 then
                     sleep = 0
                     isinmarker = true
                     if IsPedSittingInAnyVehicle(PlayerPedId()) then
@@ -99,10 +99,10 @@ end
 
 function spawnvehicle(data,v)
     local xPlayer = ESX.GetPlayerData()
+    if xPlayer.job.grade >= v.grade then
     RegisterNetEvent('JG-Sharedgarage:setvehicleout', function()
         v.notingarage = true
     end)
-    if xPlayer.job.grade >= v.grade then
         local vehicle = v
         local coords = data
         print(v)
@@ -117,9 +117,7 @@ function spawnvehicle(data,v)
         SetVehicleLivery(vehdata, v.livery)
         SetVehicleMod(vehdata,18,1,true)
         local plate = GetVehicleNumberPlateText(vehdata)
-        if Config.t1gerkeys then
         exports['t1ger_keys']:GiveTemporaryKeys(plate, v.model, 'Job')
-        end
         end)
     else
         ESX.ShowNotification('You are not Authorized for this vehicle', 2000, error)
