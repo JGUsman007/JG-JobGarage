@@ -117,7 +117,9 @@ function spawnvehicle(data,v)
         SetVehicleLivery(vehdata, v.livery)
         SetVehicleMod(vehdata,18,1,true)
         local plate = GetVehicleNumberPlateText(vehdata)
+        if Config.t1gerkeys then
         exports['t1ger_keys']:GiveTemporaryKeys(plate, v.model, 'Job')
+        end
         end)
     else
         ESX.ShowNotification('You are not Authorized for this vehicle', 2000, error)

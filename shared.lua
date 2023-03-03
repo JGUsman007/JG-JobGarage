@@ -1,6 +1,6 @@
 Config = {}
 Config.garageradius = 5
-
+Config.t1gerkeys = false
 Config.Garage = {
     [0] = {  
         pos = vec3(335.9614, -582.1350, 28.7969),
