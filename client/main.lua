@@ -51,7 +51,7 @@ function savevehicle(v)
     local vehicleplate = GetVehicleNumberPlateText(vehicle)
     local String = vehicleplate:gsub("[ \t]", "")
 
-    for i = 1, #v.vehicles do
+    for i = 0, #v.vehicles do
         if v.vehicles[i].numberplate == String then
             print('hello')
             local vehdata = v.vehicles[i]
