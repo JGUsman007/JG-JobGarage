@@ -8,7 +8,7 @@ Config.Garage = {
         spawnheading = 343.1217,
         jobname = 'ambulance',
         vehicles = {
-            [1] = {
+            [0] = {
                 model = 'ambulance',
                 name = 'Ambulance',
                 livery = 3,
@@ -17,7 +17,7 @@ Config.Garage = {
                 notingarage = false ------------------------NOTE Dont Change this 
 
             },
-            [2] = {
+            [1] = {
                 model = 'ambulance',
                 name = 'Ambulance',
                 livery = 3,
@@ -26,7 +26,7 @@ Config.Garage = {
                 notingarage = false ------------------------NOTE Dont Change this 
 
             },
-            [3] = {
+            [2] = {
                 model = 'ambulance',
                 name = 'Ambulance',
                 livery = 3,
