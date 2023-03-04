@@ -16,13 +16,13 @@ CreateThread(function()
                     sleep = 0
                     isinmarker = true
                     if IsPedSittingInAnyVehicle(PlayerPedId()) then
-                        currentaction = '[E] to save vehicle'
+                        lib.showTextUI('[E] to save vehicle')
                         if IsControlJustReleased(0, 38) then 
                             lib.hideTextUI()
                             savevehicle(v)
                         end
                     else
-                        currentaction = '[E] to access garage'
+                        lib.showTextUI('[E] to access garage')
                         if  IsControlJustReleased(0, 38) then 
                         openmenu(v)
                         lib.hideTextUI()    
@@ -33,7 +33,6 @@ CreateThread(function()
         end
         if isinmarker and not hasenteredmarker then
             hasenteredmarker = true
-            lib.showTextUI(currentaction)
         end
 
         if not isinmarker and hasenteredmarker then
@@ -84,10 +83,7 @@ local options = {}
     lib.registerContext({
         id = 'sharedgarage',
         title = 'Garage',
-        options = options,
-        onExit = function()
-            lib.showTextUI('[E] to access garage')
-        end
+        options = options
     })
 
     lib.showContext('sharedgarage')
