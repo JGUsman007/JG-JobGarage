@@ -2,16 +2,17 @@ ESX = exports['es_extended']:getSharedObject()
 local hasenteredmarker = false
 
 
+
+local function MainThread()
+
 CreateThread(function()
     while true do 
-        local sleep = 1000
+        local sleep = 1500
         local playerCoords = GetEntityCoords(PlayerPedId())
-        local xPlayer = ESX.GetPlayerData()
         local isinmarker = false
-        local currentaction
         for k,v in pairs(Config.Garage) do
             local distance =  #(playerCoords - v.pos)
-            if xPlayer.job.name == v.jobname then
+            if ESX.PlayerData.job.name == v.jobname then
                 if distance < 5 then
                     sleep = 0
                     isinmarker = true
@@ -43,7 +44,7 @@ CreateThread(function()
 Wait(sleep)
     end
 end)
-
+end
 
 function savevehicle(v)
     local vehicle = GetVehiclePedIsIn(PlayerPedId())
@@ -119,3 +120,14 @@ function spawnvehicle(data,v)
         ESX.ShowNotification('You are not Authorized for this vehicle', 2000, error)
 end
 end
+
+
+
+AddEventHandler('esx:playerLoaded', function(playerData)
+    MainThread()
+end)
+
+RegisterNetEvent('esx:setJob')
+AddEventHandler('esx:setJob', function(job)
+    ESX.PlayerData.job = job
+end)

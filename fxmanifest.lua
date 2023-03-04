@@ -3,10 +3,10 @@ fx_version 'adamant'
 
 game 'gta5'
 lua54 'yes'
-description 'Shared job garages for esx framework by #JGUsman#5140'
 
 shared_scripts{
     'shared.lua',
+    '@es_extended/imports.lua',
     '@ox_lib/init.lua'
 }
 
