@@ -13,7 +13,7 @@ CreateThread(function()
         for k,v in pairs(Config.Garage) do
             local distance =  #(playerCoords - v.pos)
             if ESX.PlayerData.job.name == v.jobname then
-                if distance < 5 then
+                if distance < 5 then  -- Here you can edit radius of TEXT UI
                     sleep = 0
                     isinmarker = true
                     if IsPedSittingInAnyVehicle(PlayerPedId()) then
@@ -72,6 +72,7 @@ local options = {}
         table.insert(options,{
             title = v.name,
             description = 'Numberplate :'..v.numberplate,
+            image = v.url,  -- vehicles images
             onSelect = function()
                 spawnvehicle(data,v)
             end,
@@ -96,9 +97,10 @@ end
 
 function spawnvehicle(data,v)
     local xPlayer = ESX.GetPlayerData()
-    if xPlayer.job.grade >= v.grade then
+    --if xPlayer.job.grade >= v.grade then
+    if xPlayer.job.grade == v.grade then  -- with this players can only spawn vehicles if they have specific grade (if you want old function just comment this and uncomment that)
     RegisterNetEvent('JG-Sharedgarage:setvehicleout', function()
-        v.notingarage = true
+        v.notingarage = false -- if you put this to false (you can spawn infinite vehicles) if it is true (you can only spawn on vehicles for time)
     end)
         local vehicle = v
         local coords = data
@@ -109,12 +111,10 @@ function spawnvehicle(data,v)
         
         ESX.Game.SpawnVehicle(vehicle.model,coords.spawnpos,coords.spawnheading,function(vehdata)
         SetVehicleNumberPlateText(vehdata,vehicle.numberplate)
-        exports['LegacyFuel']:SetFuel(vehdata, 100.0)
         SetVehicleDirtLevel(vehdata,0.0)
         SetVehicleLivery(vehdata, v.livery)
         SetVehicleMod(vehdata,18,1,true)
         local plate = GetVehicleNumberPlateText(vehdata)
-        exports['t1ger_keys']:GiveTemporaryKeys(plate, v.model, 'Job')
         end)
     else
         ESX.ShowNotification('You are not Authorized for this vehicle', 2000, error)
