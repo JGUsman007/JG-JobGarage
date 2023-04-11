@@ -50,12 +50,15 @@ function savevehicle(v)
     local vehicle = GetVehiclePedIsIn(PlayerPedId())
     local vehicleplate = GetVehicleNumberPlateText(vehicle)
     local String = vehicleplate:gsub("[ \t]", "")
-
+TriggerServerEvent('JG-Sharedgarage:despawnvehicle')
     for i = 0, #v.vehicles do
         if v.vehicles[i].numberplate == String then
-            print('hello')
+
             local vehdata = v.vehicles[i]
-            vehdata.notingarage = false
+            RegisterNetEvent('JG-Sharedgarage:setvehiclein',function ()
+                vehdata.notingarage = false
+    
+            end)
             ESX.Game.DeleteVehicle(vehicle)
         end
     end
