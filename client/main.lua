@@ -102,13 +102,11 @@ function spawnvehicle(data,v)
     if xPlayer.job.grade >= v.grade then
     RegisterNetEvent('JG-Sharedgarage:setvehicleout', function()
         v.notingarage = true
+        v = nil
     end)
         local vehicle = v
         local coords = data
-        print(v)
-        TriggerServerEvent('JG-Sharedgarage:spawnvehicle', function(vehicle)
-            vehicle = v
-        end)
+        TriggerServerEvent('JG-Sharedgarage:spawnvehicle')
         
         ESX.Game.SpawnVehicle(vehicle.model,coords.spawnpos,coords.spawnheading,function(vehdata)
         SetVehicleNumberPlateText(vehdata,vehicle.numberplate)
