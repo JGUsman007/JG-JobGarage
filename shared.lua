@@ -13,7 +13,7 @@ Config.Garage = {
                 name = 'Ambulance',
                 livery = 3,
                 grade = 0,
-                numberplate = 'ems101', --------------------NOTE THE PLATE NUMBERS SHOULD BE UNIQUE AND THEIR CHARACTERS SHOULD BE UPPERCASE
+                numberplate = 'EMS101', --------------------NOTE THE PLATE NUMBERS SHOULD BE UNIQUE AND THEIR CHARACTERS SHOULD BE UPPERCASE
                 notingarage = false ------------------------NOTE Dont Change this 
 
             },
@@ -22,7 +22,7 @@ Config.Garage = {
                 name = 'Ambulance',
                 livery = 3,
                 grade = 0,
-                numberplate = 'ems102', --------------------NOTE THE PLATE NUMBERS SHOULD BE UNIQUE AND THEIR CHARACTERS SHOULD BE UPPERCASE
+                numberplate = 'EMS102', --------------------NOTE THE PLATE NUMBERS SHOULD BE UNIQUE AND THEIR CHARACTERS SHOULD BE UPPERCASE
                 notingarage = false ------------------------NOTE Dont Change this 
 
             },
@@ -31,7 +31,7 @@ Config.Garage = {
                 name = 'Ambulance',
                 livery = 3,
                 grade = 0,
-                numberplate = 'ems103', --------------------NOTE THE PLATE NUMBERS SHOULD BE UNIQUE AND THEIR CHARACTERS SHOULD BE UPPERCASE
+                numberplate = 'EMS103', --------------------NOTE THE PLATE NUMBERS SHOULD BE UNIQUE AND THEIR CHARACTERS SHOULD BE UPPERCASE
                 notingarage = false ------------------------NOTE Dont Change this 
 
             },
