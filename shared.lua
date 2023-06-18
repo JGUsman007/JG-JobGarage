@@ -1,17 +1,6 @@
 Config = {}
 Config.garageradius = 5
 
-
-Config.repair = {
-    [0] = {
-        pos = vec3(450.7270, -974.6158, 24.6998),
-        heading = 176.5789,
-        paid = true
-    }
-}
-
-
-
 Config.Garage = {
     [0] = {  
         pos = vec3(444.9501, -991.2524, 25.6998),
